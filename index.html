@@ -782,7 +782,7 @@
     function createImpactParticles(position) {
         for (let i = 0; i < 5; i++) {
             const geo = new THREE.SphereGeometry(0.03, 4, 4);
-            const mat = new THREE.MeshBasicMaterial({ color: 0xffaa44 });
+            const mat = new THREE.MeshBasicMaterial({ color: 0xffaa44, transparent: true });
             const particle = new THREE.Mesh(geo, mat);
             particle.position.copy(position);
             scene.add(particle);
@@ -803,6 +803,7 @@
             const geo = new THREE.BoxGeometry(0.1, 0.1, 0.1);
             const mat = new THREE.MeshBasicMaterial({
                 color: new THREE.Color().setHSL(Math.random() * 0.1, 0.8, 0.5),
+                transparent: true,
             });
             const particle = new THREE.Mesh(geo, mat);
             particle.position.copy(position);
