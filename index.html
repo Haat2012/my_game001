@@ -477,7 +477,7 @@
             hits.length > 0 ? hits[0].point.clone() : rc.ray.origin.clone().add(rc.ray.direction.clone().multiplyScalar(100)));
         if (hits.length > 0) createImpactParticles(hits[0].point.clone());
         setTimeout(function() { state.canShoot = true; }, wp.fireRate);
-        if (wp.ammo <= 0 && wp.reserveAmmo > 0) setTimeout(function() { reload(); }, 300);
+        if (wp.ammo <= 0 && wp.reserveAmmo > 0) { var reloadKey = state.currentWeapon; setTimeout(function() { if (state.currentWeapon === reloadKey) reload(); }, 300); }
     }
 
     function meleeAttack() {
