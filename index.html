@@ -972,9 +972,10 @@
             knifeSwingAngle += delta * 12;
             var sx = Math.sin(knifeSwingAngle * Math.PI) * 0.15;
             var sz = -Math.abs(Math.sin(knifeSwingAngle * Math.PI)) * 0.2;
-            weaponModels.knife.children.forEach(function(c) {
+            weaponModels.knife.children.forEach(function(c, ci) {
+                var baseZ = [-0.55, -0.75, -0.32, -0.39][ci] || c.position.z;
                 c.position.x = 0.25 + sx;
-                c.position.z += sz * 0.1;
+                c.position.z = baseZ + sz * 0.1;
             });
         }
 
